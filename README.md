@@ -1,16 +1,23 @@
-## Hi there 👋
+## Hi, I'm Sai Nithin Goud 👋
 
-<!--
-**NithinGoud2605/NithinGoud2605** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🚀 Software Engineer | Python • React • AWS  
+🤖 Building scalable microservices & AI-powered applications  
+🌍 Open to Software Engineer roles (Backend / Full-Stack)
 
-Here are some ideas to get you started:
+### 🛠 Tech Stack
+- **Languages:** Python, JavaScript, SQL
+- **Frontend:** React, HTML, CSS
+- **Backend:** Django, REST APIs
+- **Cloud:** AWS (EC2, S3, Lambda)
+- **Tools:** Git, Docker, GitHub Actions
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🚧 Featured Projects
+- **AI Resume Evaluator** – AI-driven resume analysis tool  
+- **Savebucks** – Smart savings & finance tracker  
+- **InvoiceApp** – Automated invoicing system  
+- **Ecommerce Site (Django)** – Full-stack e-commerce platform
+
+👉 Live Portfolio: https://sainithingoud.vercel.app  
+👉 LinkedIn: https://linkedin.com/in/sainithingoudk
+
+📫 Reach me: sainithingoud@email.com
