@@ -20,4 +20,4 @@
 👉 Live Portfolio: https://sainithingoud.vercel.app  
 👉 LinkedIn: https://linkedin.com/in/sainithingoudk
 
-📫 Reach me: sainithingoud@email.com
+📫 Reach me: sainithingoudk@gmail.com
