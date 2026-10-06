@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the static panels: typing header, projects, now.md, career timeline, contact buttons, footer.
+"""Render the static panels: typing header, now.md, career timeline, contact buttons, footer.
 
 Content lives in the constants below; edit them and rerun (the daily workflow reruns this too).
 """
@@ -16,15 +16,6 @@ HEADER_LINES = [
     "React on top, Postgres underneath.",
 ]
 TAGLINE = "Engineer · full-stack products, real-time systems and AI workflows · San Francisco"
-
-# (folder name shown, what it does, stack) — links to the repos sit under the panel in README.md.
-PROJECTS = [
-    ("finorn/", "Invoices, contracts, expenses and AI insights", "React · Express · Stripe"),
-    ("savebucks/", "Community-driven US deals platform", "React · Supabase · OpenAI"),
-    ("ai-resume-evaluator/", "Multi-agent resume scoring against a job post", "Python · Flask · LangChain"),
-    ("moneyscale/", "Personal finance tracker with AI insights", "React · Node · Vite"),
-    ("cf-ai-chat/", "AI chat with memory on Workers AI", "Cloudflare · Durable Obj."),
-]
 
 NOW = [
     ("h", "# Now"),
@@ -58,7 +49,7 @@ def header(t):
     size, cw = 24, 14.45  # monospace advance is ~0.6em
     n, slot = len(HEADER_LINES), 3.4
     total = n * slot
-    clips, texts, cursor_x, cursor_t = [], [], [], []
+    clips, texts, cursor_x = [], [], []
     for i, line in enumerate(HEADER_LINES):
         width = len(line) * cw + 4
         a, b, c, d = i / n, (i + 0.38) / n, (i + 0.82) / n, (i + 0.96) / n
@@ -84,23 +75,6 @@ def header(t):
 {cursor}
 <text x="{x0}" y="{h - 16}" class="dim fade" {fade(0, 0.6)}>{escape(TAGLINE)}</text>'''
     return window(t, w, h, "~/ — zsh", body, label=HEADER_LINES[0] + " " + TAGLINE)
-
-
-def projects(t):
-    w, x0 = FULL, 22
-    cols = (x0, 210, 640)
-    rows = []
-    for i, (name, what, stack) in enumerate(PROJECTS):
-        y = 106 + i * 26
-        rows.append(f'<g class="fade" {fade(i, 0.5)}><text x="{cols[0]}" y="{y}" class="b bold">{escape(name)}</text>'
-                    f'<text x="{cols[1]}" y="{y}">{escape(what)}</text><text x="{cols[2]}" y="{y}" class="dim">{escape(stack)}</text></g>')
-    h = 106 + len(PROJECTS) * 26 + 22
-    body = f'''{prompt(t, x0, 48, "ls -l ~/projects --featured")}
-<text x="{cols[0]}" y="78" class="dim" style="font-size:11px">NAME</text><text x="{cols[1]}" y="78" class="dim" style="font-size:11px">WHAT IT DOES</text><text x="{cols[2]}" y="78" class="dim" style="font-size:11px">STACK</text>
-<line x1="{x0}" x2="{w - 22}" y1="86" y2="86" stroke="{t['border']}"/>
-{"".join(rows)}
-<g class="fade" {fade(len(PROJECTS), 0.5)}><text x="{x0}" y="{h - 16}" class="dim" style="font-size:11px">{len(PROJECTS)} featured · links below</text></g>'''
-    return window(t, w, h, "~/projects", body, label="Featured projects")
 
 
 def now(t):
@@ -158,13 +132,12 @@ def footer(t):
 def main():
     for name, t in THEMES.items():
         write("header", name, header(t))
-        write("projects", name, projects(t))
         write("now", name, now(t))
         write("timeline", name, timeline(t))
         write("footer", name, footer(t))
         for b, v in BUTTONS:
             write(f"btn-{b}", name, button(t, b, v))
-    print("Wrote header, projects, now, timeline, footer and buttons (dark + light)")
+    print("Wrote header, now, timeline, footer and buttons (dark + light)")
 
 
 if __name__ == "__main__":

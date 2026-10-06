@@ -25,13 +25,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Standard library only; the portrait (Pillow) is generated locally and committed.
+      # Standard library only.
       - run: python scripts/fetch_contributions.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: ${{ github.repository_owner }}
       - run: python scripts/render_3d_svg.py
-      - run: python scripts/make_info_card.py
       - run: python scripts/make_panels.py
 
       - name: Commit if changed

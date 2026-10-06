@@ -18,38 +18,6 @@
   <tr>
     <td valign="top">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./assets/ascii-portrait-dark.svg" />
-        <img src="./assets/ascii-portrait-light.svg" width="370" alt="ASCII portrait" />
-      </picture>
-    </td>
-    <td valign="top">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./assets/info-card-dark.svg" />
-        <img src="./assets/info-card-light.svg" width="490" alt="Sai Nithin Goud Kurremula, Engineer" />
-      </picture>
-    </td>
-  </tr>
-</table>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/projects-dark.svg" />
-  <img src="./assets/projects-light.svg" width="860" alt="Featured projects" />
-</picture>
-
-<sub>
-<a href="https://github.com/NithinGoud2605/Finance-Application">finorn</a> ·
-<a href="https://github.com/NithinGoud2605/Savebucks">savebucks</a> ·
-<a href="https://github.com/NithinGoud2605/AI-Resume-Evaluator">ai-resume-evaluator</a> ·
-<a href="https://github.com/NithinGoud2605/MoneyScale">moneyscale</a> ·
-<a href="https://github.com/NithinGoud2605/cf_ai_SaiNithinGoudK">cf-ai-chat</a>
-</sub>
-
-<br><br>
-
-<table>
-  <tr>
-    <td valign="top">
-      <picture>
         <source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg" />
         <img src="./assets/now-light.svg" width="370" alt="What I'm working on now" />
       </picture>

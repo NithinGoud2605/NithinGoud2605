@@ -1,3 +1,0 @@
-# Only needed locally for make_ascii_svg.py; the daily workflow uses the standard library.
-pillow
-numpy
