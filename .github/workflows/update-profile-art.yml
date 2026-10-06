@@ -32,10 +32,20 @@ jobs:
           GH_USERNAME: ${{ github.repository_owner }}
       - run: python scripts/render_heatmap_svg.py
       - run: python scripts/make_info_card.py
+      - run: python scripts/make_panels.py
+
+      # Writes dist/pacman-contribution-graph{,-dark}.svg; we reframe it to match the other panels.
+      - uses: abozanona/pacman-contribution-graph@7332e1de7903ab780c3692a4127a59cc13872daa
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: pacman
+          player_style: opportunistic
+          hide_month_labels: "true"
+      - run: python scripts/wrap_pacman.py
 
       - name: Commit if changed
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add data/contributions.json contrib-heatmap.svg info-card.svg
+          git add data/contributions.json assets/
           git diff --cached --quiet || { git commit -m "chore: refresh profile art [skip ci]" && git push; }

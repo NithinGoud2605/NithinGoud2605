@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-"""Turn source-photo.png into a coloured, self-typing ASCII portrait (ascii-portrait.svg).
+"""Turn source-photo.png into a coloured, self-typing ASCII portrait (assets/ascii-portrait-{dark,light}.svg).
 
 Run locally once (needs Pillow + numpy); the result is committed. The source art already has a
 transparent background, so its alpha channel is the mask and no background removal is needed.
 """
-from pathlib import Path
-
 import numpy as np
 from PIL import Image, ImageEnhance
 
-ROOT = Path(__file__).resolve().parent.parent
+from theme import ROOT, THEMES, window, write
 
 W, H = 370, 420                 # info card height must match H
 AX, AY, AW, AH = 8, 34, 354, 378  # ASCII area inside the terminal frame
@@ -21,6 +19,13 @@ RAMP = " .:-=+*o#%@"            # dim -> dense (drawn light-on-dark)
 
 
 def main():
+    for name, t in THEMES.items():
+        svg = render(name, t)
+        write("ascii-portrait", name, svg)
+        print(f"Wrote ascii-portrait-{name}.svg ({len(svg) // 1024} KB)")
+
+
+def render(name, t):
     img = Image.open(ROOT / "source-photo.png").convert("RGBA")
     img = ImageEnhance.Contrast(img).enhance(1.3)
     small = np.asarray(img.resize((COLS, ROWS), Image.LANCZOS)).astype(float)
@@ -40,8 +45,9 @@ def main():
                 ch, color = " ", run_color
             else:
                 ch = RAMP[max(1, min(len(RAMP) - 1, int(lum[r, c] * len(RAMP))))]
-                # Brighten towards white so dark tones stay visible on #0d1117, then quantise to #rgb.
-                boosted = 45 + rgb[r, c] * (210 / 255)
+                # Dark theme: lift towards white so dark tones stay visible on the near-black panel.
+                # Light theme: darken so pale skin tones stay readable on white. Then quantise to #rgb.
+                boosted = 45 + rgb[r, c] * (210 / 255) if name == "dark" else rgb[r, c] * 0.72
                 color = "#" + "".join(f"{int(v) >> 4:x}" for v in boosted)
             if color != run_color and run_chars.strip():
                 spans.append((run_color, run_chars))
@@ -63,17 +69,9 @@ def main():
             f'<animate attributeName="width" from="0" to="{AW}" begin="{begin:.2f}s" dur="0.25s" fill="freeze"/></rect>'
         )
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="ASCII portrait of Nithin">
-<style>text{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:8.3px;white-space:pre}}</style>
-<defs><clipPath id="reveal">{"".join(clips)}</clipPath></defs>
-<rect width="{W}" height="{H}" rx="10" fill="#0d1117" stroke="#30363d"/>
-<circle cx="18" cy="16" r="5" fill="#ff5f56"/><circle cx="34" cy="16" r="5" fill="#ffbd2e"/><circle cx="50" cy="16" r="5" fill="#27c93f"/>
-<text x="{W / 2}" y="20" text-anchor="middle" fill="#8b949e" style="font-size:11px">~/ — portrait.txt</text>
-<g clip-path="url(#reveal)" xml:space="preserve">{"".join(rows_svg)}</g>
-</svg>
-'''
-    (ROOT / "ascii-portrait.svg").write_text(svg, encoding="utf-8")
-    print(f"Wrote ascii-portrait.svg ({len(svg) // 1024} KB)")
+    body = (f'<defs><clipPath id="reveal">{"".join(clips)}</clipPath></defs>'
+            f'<g class="a" clip-path="url(#reveal)" xml:space="preserve">{"".join(rows_svg)}</g>')
+    return window(t, W, H, "~/ — portrait.txt", body, ".a text{font-size:8.3px;white-space:pre}", "ASCII portrait of Nithin")
 
 
 if __name__ == "__main__":
