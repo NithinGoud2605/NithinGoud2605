@@ -30,15 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: ${{ github.repository_owner }}
+      - run: python scripts/render_3d_svg.py
       - run: python scripts/make_info_card.py
       - run: python scripts/make_panels.py
-
-      # Writes profile-3d-contrib/*.svg; we reframe two of them to match the other panels.
-      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-      - run: python scripts/wrap_3d.py
 
       - name: Commit if changed
         run: |
