@@ -11,9 +11,9 @@ FULL = 860
 
 HEADER_LINES = [
     "Hi, I'm Sai Nithin Goud.",
-    "I build products from 0 to 1.",
-    "Backend, real-time data, AI features.",
-    "React on top, Postgres underneath.",
+    "Founding Engineer.",
+    "Full-stack + AI.",
+    "Always shipping.",
 ]
 TAGLINE = "Engineer · full-stack products, real-time systems and AI workflows · San Francisco"
 
