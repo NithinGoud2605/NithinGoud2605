@@ -32,7 +32,7 @@ NOW_UPDATED = "updated Oct 2026"
 
 # (year, title, where · when, is_current)
 CAREER = [
-    ("2026", "Engineer", "Anthum · San Francisco · Feb 2026 – now", True),
+    ("2026", "Founding Engineer", "Anthum · San Francisco · Feb 2026 – now", True),
     ("2025", "Software Developer Intern", "Nuubi · Remote · Oct 2025 – Jan 2026", False),
     ("2024", "M.S. Computer Science", "University of Cincinnati · 2024 – 2026", False),
     ("2024", "Software Engineer", "Skyinfolab Software Solutions · Jan – Aug 2024", False),

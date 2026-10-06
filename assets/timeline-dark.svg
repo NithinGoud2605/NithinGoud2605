@@ -7,7 +7,7 @@
 <line x1="30" x2="30" y1="80" y2="252" stroke="#30363d" stroke-width="2"/>
 <g class="fade" style="animation-delay:0.40s">
 <circle cx="30" cy="80" r="5" fill="#0d1117" stroke="#39d353" stroke-width="2"/>
-<text x="46" y="84"><tspan class="o">2026</tspan>  <tspan class="br bold">Engineer</tspan> <tspan class="g">(HEAD)</tspan></text>
+<text x="46" y="84"><tspan class="o">2026</tspan>  <tspan class="br bold">Founding Engineer</tspan> <tspan class="g">(HEAD)</tspan></text>
 <text x="94" y="102" class="dim" style="font-size:12px">Anthum · San Francisco · Feb 2026 – now</text></g><g class="fade" style="animation-delay:0.52s">
 <circle cx="30" cy="122" r="5" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
 <text x="46" y="126"><tspan class="o">2025</tspan>  <tspan class="br bold">Software Developer Intern</tspan></text>
