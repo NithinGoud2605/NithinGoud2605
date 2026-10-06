@@ -1,27 +1,22 @@
-# Hi, I'm Sai Nithin Goud 👋
+<div align="center">
 
-🚀 Software Engineer | Python • React • AWS
-🤖 Building scalable microservices & AI-powered applications
-🌍 Open to Software Engineer roles (Backend / Full-Stack)
+<h3><code>nithin@github ~ $ ./contributions.sh</code></h3>
 
-## 🛠 Tech Stack
-- **Languages:** Python, JavaScript, SQL
-- **Frontend:** React, HTML, CSS
-- **Backend:** Django, REST APIs
-- **Cloud:** AWS (EC2, S3, Lambda)
-- **Tools:** Git, Docker, GitHub Actions
+<img src="./contrib-heatmap.svg" width="860" alt="Contribution heatmap for the last 12 months" />
 
-## 🚧 Featured Projects
-- **AI Resume Evaluator** – AI-driven resume analysis tool
-- **Savebucks** – Smart savings & finance tracker
-- **InvoiceApp** – Automated invoicing system
-- **Ecommerce Site (Django)** – Full-stack e-commerce platform
+<br><br>
 
-## 📊 3D Contributions
-![](./profile-3d-contrib/profile-night-view.svg)
+<h3><code>nithin@github ~ $ whoami</code></h3>
 
----
+<table>
+  <tr>
+    <td valign="top"><img src="./ascii-portrait.svg" width="370" alt="ASCII portrait" /></td>
+    <td valign="top"><img src="./info-card.svg" width="490" alt="Sai Nithin Goud Kurremula, Engineer" /></td>
+  </tr>
+</table>
 
-👉 **Live Portfolio:** https://sainithingoud.vercel.app
-👉 **LinkedIn:** https://linkedin.com/in/sainithingoudk
-📫 **Reach me:** sainithingoudk@gmail.com
+<a href="https://sainithingoud.vercel.app">Portfolio</a> ·
+<a href="https://linkedin.com/in/sainithingoudk">LinkedIn</a> ·
+<a href="mailto:sainithingoudk@gmail.com">Email</a>
+
+</div>

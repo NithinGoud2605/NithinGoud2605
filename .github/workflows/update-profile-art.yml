@@ -1,0 +1,41 @@
+name: Update profile art
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/update-profile-art.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-art
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      # Standard library only; the portrait (Pillow) is generated locally and committed.
+      - run: python scripts/fetch_contributions.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: ${{ github.repository_owner }}
+      - run: python scripts/render_heatmap_svg.py
+      - run: python scripts/make_info_card.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add data/contributions.json contrib-heatmap.svg info-card.svg
+          git diff --cached --quiet || { git commit -m "chore: refresh profile art [skip ci]" && git push; }
