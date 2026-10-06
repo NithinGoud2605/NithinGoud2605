@@ -27,7 +27,10 @@ def main():
     rgb, alpha = small[..., :3], small[..., 3] / 255
 
     lum = (0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2]) / 255
-    lum = lum ** 0.8  # lift the dark shirt and hair so they still read
+    # Stretch brightness across the subject only (ignoring the cut-out background), then lift the
+    # shadows so the dark shirt and hair still read.
+    lo, hi = np.percentile(lum[alpha > 0.5], [3, 99])
+    lum = np.clip((lum - lo) / (hi - lo), 0, 1) ** 0.7
 
     rows_svg, clips = [], []
     for r in range(ROWS):
