@@ -41,7 +41,8 @@ CAREER = [
 
 BUTTONS = [("portfolio", "sainithingoud.vercel.app"), ("linkedin", "in/sainithingoudk"), ("email", "sainithingoudk@gmail.com")]
 
-SIDE_H = 300  # now.md (370) and timeline (490) sit side by side at this height
+SIDE_H = 300  # now.md (370) and timeline (480) share one 860-wide image at this height
+GUTTER = 10
 
 
 def header(t):
@@ -95,7 +96,7 @@ def now(t):
 
 
 def timeline(t):
-    w, x0, gx = 490, 22, 30
+    w, x0, gx = FULL - 370 - GUTTER, 22, 30
     items, y = [], 84
     for i, (year, title, where, current) in enumerate(CAREER):
         head = (f'<tspan class="o">{year}</tspan>  <tspan class="br bold">{escape(title)}</tspan>'
@@ -111,8 +112,16 @@ def timeline(t):
     return window(t, w, SIDE_H, "~/ — career", body, label="Career timeline")
 
 
+def about(t):
+    """now.md and the timeline as two windows in one image, so README needs no (bordered) table."""
+    left, right = now(t), timeline(t)
+    right = right.replace("<svg ", f'<svg x="{370 + GUTTER}" ', 1)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{FULL}" height="{SIDE_H}" viewBox="0 0 {FULL} {SIDE_H}" '
+            f'role="img" aria-label="What I\'m working on now, and career timeline">\n{left}{right}</svg>\n')
+
+
 def button(t, name, value):
-    w, h = 270, 44
+    w, h = 280, 44
     body = (f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="8" fill="{t["bg"]}" stroke="{t["border"]}"/>'
             f'<text x="16" y="27"><tspan class="g bold">→</tspan> <tspan class="br bold">{name}</tspan> <tspan class="dim" style="font-size:11px">{escape(value)}</tspan></text>')
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{name}: {escape(value)}">
@@ -132,12 +141,11 @@ def footer(t):
 def main():
     for name, t in THEMES.items():
         write("header", name, header(t))
-        write("now", name, now(t))
-        write("timeline", name, timeline(t))
+        write("about", name, about(t))
         write("footer", name, footer(t))
         for b, v in BUTTONS:
             write(f"btn-{b}", name, button(t, b, v))
-    print("Wrote header, now, timeline, footer and buttons (dark + light)")
+    print("Wrote header, about (now + timeline), footer and buttons (dark + light)")
 
 
 if __name__ == "__main__":

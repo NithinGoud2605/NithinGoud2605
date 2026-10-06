@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="What I'm working on now, and career timeline">
+<svg xmlns="http://www.w3.org/2000/svg" width="370" height="300" viewBox="0 0 370 300" role="img" aria-label="What I&#x27;m working on now">
+<style>text{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;fill:#c9d1d9}.dim{fill:#8b949e}.br{fill:#f0f6fc}.g{fill:#39d353}.b{fill:#58a6ff}.pu{fill:#bc8cff}.o{fill:#ffa657}.bold{font-weight:700}.fade{opacity:0;animation:fade .45s ease-out forwards}@keyframes fade{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}.cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1}}</style>
+<rect x=".5" y=".5" width="369" height="299" rx="10" fill="#0d1117" stroke="#30363d"/>
+<circle cx="18" cy="16" r="5" fill="#ff5f56"/><circle cx="34" cy="16" r="5" fill="#ffbd2e"/><circle cx="50" cy="16" r="5" fill="#27c93f"/>
+<text class="dim" x="185.0" y="20" text-anchor="middle" style="font-size:11px">~/ — now.md</text>
+<text x="22" y="48" class=""><tspan class="g">$</tspan> <tspan class="br">cat now.md</tspan></text>
+<text x="22" y="80" class="fade b bold" style="animation-delay:0.40s" xml:space="preserve"># Now</text><text x="22" y="101" class="fade " style="animation-delay:0.52s" xml:space="preserve">→ Building an AI-enabled marketplace,</text><text x="22" y="122" class="fade " style="animation-delay:0.64s" xml:space="preserve">  end to end, as an early engineer</text><text x="22" y="143" class="fade " style="animation-delay:0.76s" xml:space="preserve">→ Real-time sync with WebSockets + Redis</text><text x="22" y="164" class="fade " style="animation-delay:0.88s" xml:space="preserve">→ AI-assisted workflows in the product</text><text x="22" y="185" class="fade " style="animation-delay:1.00s" xml:space="preserve">→ Side projects: Finorn, Savebucks</text><text x="22" y="216" class="fade b bold" style="animation-delay:1.12s" xml:space="preserve"># Daily stack</text><text x="22" y="237" class="fade " style="animation-delay:1.24s" xml:space="preserve">→ TypeScript, React, Postgres, Supabase</text>
+<g class="fade" style="animation-delay:1.36s"><text x="22" y="282" class="dim" style="font-size:11px">updated Oct 2026</text></g>
+</svg>
+<svg x="380" xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300" role="img" aria-label="Career timeline">
+<style>text{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:13px;fill:#c9d1d9}.dim{fill:#8b949e}.br{fill:#f0f6fc}.g{fill:#39d353}.b{fill:#58a6ff}.pu{fill:#bc8cff}.o{fill:#ffa657}.bold{font-weight:700}.fade{opacity:0;animation:fade .45s ease-out forwards}@keyframes fade{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}.cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1}}</style>
+<rect x=".5" y=".5" width="479" height="299" rx="10" fill="#0d1117" stroke="#30363d"/>
+<circle cx="18" cy="16" r="5" fill="#ff5f56"/><circle cx="34" cy="16" r="5" fill="#ffbd2e"/><circle cx="50" cy="16" r="5" fill="#27c93f"/>
+<text class="dim" x="240.0" y="20" text-anchor="middle" style="font-size:11px">~/ — career</text>
+<text x="22" y="48" class=""><tspan class="g">$</tspan> <tspan class="br">git log --graph career</tspan></text>
+<line x1="30" x2="30" y1="80" y2="252" stroke="#30363d" stroke-width="2"/>
+<g class="fade" style="animation-delay:0.40s">
+<circle cx="30" cy="80" r="5" fill="#0d1117" stroke="#39d353" stroke-width="2"/>
+<text x="46" y="84"><tspan class="o">2026</tspan>  <tspan class="br bold">Founding Engineer</tspan> <tspan class="g">(HEAD)</tspan></text>
+<text x="94" y="102" class="dim" style="font-size:12px">Anthum · San Francisco · Feb 2026 – now</text></g><g class="fade" style="animation-delay:0.52s">
+<circle cx="30" cy="122" r="5" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+<text x="46" y="126"><tspan class="o">2025</tspan>  <tspan class="br bold">Software Developer Intern</tspan></text>
+<text x="94" y="144" class="dim" style="font-size:12px">Nuubi · Remote · Oct 2025 – Jan 2026</text></g><g class="fade" style="animation-delay:0.64s">
+<circle cx="30" cy="164" r="5" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+<text x="46" y="168"><tspan class="o">2024</tspan>  <tspan class="br bold">M.S. Computer Science</tspan></text>
+<text x="94" y="186" class="dim" style="font-size:12px">University of Cincinnati · 2024 – 2026</text></g><g class="fade" style="animation-delay:0.76s">
+<circle cx="30" cy="206" r="5" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+<text x="46" y="210"><tspan class="o">2024</tspan>  <tspan class="br bold">Software Engineer</tspan></text>
+<text x="94" y="228" class="dim" style="font-size:12px">Skyinfolab Software Solutions · Jan – Aug 2024</text></g><g class="fade" style="animation-delay:0.88s">
+<circle cx="30" cy="248" r="5" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+<text x="46" y="252"><tspan class="o">2020</tspan>  <tspan class="br bold">B.S. Computer Science &amp; Game Dev</tspan></text>
+<text x="94" y="270" class="dim" style="font-size:12px">Backstage Pass Institute · 2020 – 2024</text></g>
+</svg>
+</svg>

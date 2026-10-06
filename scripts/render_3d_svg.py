@@ -8,7 +8,7 @@ import json
 
 from theme import ROOT, THEMES, prompt, window, write
 
-W, H = 860, 440
+W = 860
 X0, OY = 22, 352          # projection origin
 DX, RX = 14.0, 9.2        # x step per week / per weekday
 DY, RY = 4.35, 7.9        # y step per week (up) / per weekday (down)
@@ -34,7 +34,7 @@ def render(t, data):
     # Painter's order: back (high week, low weekday) to front.
     cells.sort(key=lambda x: x[1] * RY - x[0] * DY)
 
-    towers = []
+    towers, ys = [], []
     for c, r, lvl in cells:
         h = lvl * 14 + 4 if lvl else 2
         top = t["heat"][lvl]
@@ -44,18 +44,24 @@ def render(t, data):
                  + poly([b, cc, up(cc), up(b)], shade(top, 0.75))
                  + poly([up(a), up(b), up(cc), up(d)], top))
         towers.append(f'<g class="t w{c}">{faces}</g>')
+        ys += [up(a)[1], up(b)[1], d[1], cc[1]]
+
+    # Fit the panel to the drawing: towers start just under the prompt, stats sit just below.
+    shift = min(ys) - 62
+    h = int(max(ys) - shift + 30)
 
     delays = "".join(f".w{i}{{animation-delay:{0.5 + i * 0.03:.2f}s}}" for i in range(len(weeks)))
     css = (".t{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:grow .5s ease-out forwards}"
            "@keyframes grow{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}"
            ".late{opacity:0;animation:fade .5s ease-out 2.4s forwards}"
            "@media (prefers-reduced-motion:reduce){.t,.late{animation:none;opacity:1}}" + delays)
-    stats = (f'<text x="{W - 22}" y="{H - 18}" text-anchor="end" class="dim late" style="font-size:12px">'
+    stats = (f'<text x="{W - 22}" y="{h - 16}" text-anchor="end" class="dim late" style="font-size:12px">'
              f'<tspan class="g bold">{data["total"]:,}</tspan> contributions · current streak '
              f'<tspan class="g bold">{data["current_streak"]}d</tspan> · longest streak '
              f'<tspan class="g bold">{data["longest_streak"]}d</tspan></text>')
-    body = f'{prompt(t, 22, 44, "gh contributions --3d")}\n{"".join(towers)}\n{stats}'
-    return window(t, W, H, "~/contributions — last 12 months", body, css, f'{data["total"]} contributions in the last year')
+    body = (f'{prompt(t, 22, 44, "gh contributions --3d")}\n'
+            f'<g transform="translate(0 {-shift:.1f})">{"".join(towers)}</g>\n{stats}')
+    return window(t, W, h, "~/contributions — last 12 months", body, css, f'{data["total"]} contributions in the last year')
 
 
 def main():
