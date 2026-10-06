@@ -8,13 +8,8 @@
 <br><br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-heatmap-dark.svg" />
-  <img src="./assets/contrib-heatmap-light.svg" width="860" alt="Contribution heatmap for the last 12 months" />
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/pacman-dark.svg" />
-  <img src="./assets/pacman-light.svg" width="860" alt="Pac-Man eating the contribution graph" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-3d-dark.svg" />
+  <img src="./assets/contrib-3d-light.svg" width="860" alt="3D contribution calendar for the last 12 months" />
 </picture>
 
 <br><br>

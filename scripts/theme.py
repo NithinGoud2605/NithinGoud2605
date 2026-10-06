@@ -27,7 +27,8 @@ FONT = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',m
 
 def base_css(t):
     return (
-        f"text{{font-family:{FONT};font-size:13px;fill:{t['fg']}}}"
+        # :not(.ext text) leaves nested third-party art (wrap_3d.py) to its own fonts and sizes.
+        f"text:not(.ext text){{font-family:{FONT};font-size:13px;fill:{t['fg']}}}"
         f".dim{{fill:{t['dim']}}}.br{{fill:{t['bright']}}}.g{{fill:{t['green']}}}.b{{fill:{t['blue']}}}"
         f".pu{{fill:{t['purple']}}}.o{{fill:{t['orange']}}}.bold{{font-weight:700}}"
         ".fade{opacity:0;animation:fade .45s ease-out forwards}"

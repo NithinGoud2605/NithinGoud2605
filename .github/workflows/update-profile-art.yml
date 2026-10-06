@@ -30,18 +30,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: ${{ github.repository_owner }}
-      - run: python scripts/render_heatmap_svg.py
       - run: python scripts/make_info_card.py
       - run: python scripts/make_panels.py
 
-      # Writes dist/pacman-contribution-graph{,-dark}.svg; we reframe it to match the other panels.
-      - uses: abozanona/pacman-contribution-graph@7332e1de7903ab780c3692a4127a59cc13872daa
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          games: pacman
-          player_style: opportunistic
-          hide_month_labels: "true"
-      - run: python scripts/wrap_pacman.py
+      # Writes profile-3d-contrib/*.svg; we reframe two of them to match the other panels.
+      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+      - run: python scripts/wrap_3d.py
 
       - name: Commit if changed
         run: |
